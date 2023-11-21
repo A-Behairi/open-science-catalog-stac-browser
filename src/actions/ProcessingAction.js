@@ -8,8 +8,9 @@ export default class ProcessingAction extends LinkActionPlugin {
 
   get onClick() {
     return () => {
+      const id = this.link.href.split('/')[1];
       window.parent.postMessage({
-        navigate: '/new-process?title=' + this.link.title
+        navigate: '/new-process?process=' + id
       }, '*');
     };
   }
